@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'mainWindowsUI.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.setWindowModality(QtCore.Qt.NonModal)
+        MainWindow.resize(729, 540)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.btnOpenKeepMarketWindow = QtWidgets.QPushButton(self.centralwidget)
+        self.btnOpenKeepMarketWindow.setGeometry(QtCore.QRect(614, 470, 101, 23))
+        self.btnOpenKeepMarketWindow.setObjectName("btnOpenKeepMarketWindow")
+        self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 711, 461))
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.tab)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 701, 431))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.formLayout = QtWidgets.QFormLayout()
+        self.formLayout.setObjectName("formLayout")
+        self.fundTable = QtWidgets.QTableWidget(self.verticalLayoutWidget)
+        self.fundTable.setObjectName("fundTable")
+        self.fundTable.setColumnCount(0)
+        self.fundTable.setRowCount(0)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.fundTable)
+        self.verticalLayout.addLayout(self.formLayout)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label.setObjectName("label")
+        self.horizontalLayout.addWidget(self.label)
+        self.cobFundType = QtWidgets.QComboBox(self.verticalLayoutWidget)
+        self.cobFundType.setObjectName("cobFundType")
+        self.horizontalLayout.addWidget(self.cobFundType)
+        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout.addWidget(self.label_2)
+        self.leditFindFund = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.leditFindFund.setObjectName("leditFindFund")
+        self.horizontalLayout.addWidget(self.leditFindFund)
+        self.horizontalLayout.setStretch(1, 5)
+        self.horizontalLayout.setStretch(3, 5)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 729, 23))
+        self.menubar.setObjectName("menubar")
+        self.menu = QtWidgets.QMenu(self.menubar)
+        self.menu.setObjectName("menu")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.actUpdataFund = QtWidgets.QAction(MainWindow)
+        self.actUpdataFund.setObjectName("actUpdataFund")
+        self.menu.addAction(self.actUpdataFund)
+        self.menubar.addAction(self.menu.menuAction())
+
+        self.retranslateUi(MainWindow)
+        self.tabWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.btnOpenKeepMarketWindow.setText(_translate("MainWindow", "打开监控窗口"))
+        self.label.setText(_translate("MainWindow", "选择基金类型"))
+        self.label_2.setText(_translate("MainWindow", "查询基金"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Tab 1"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
+        self.menu.setTitle(_translate("MainWindow", "菜单"))
+        self.actUpdataFund.setText(_translate("MainWindow", "更新基金信息"))
+        self.actUpdataFund.setShortcut(_translate("MainWindow", "U"))
+
