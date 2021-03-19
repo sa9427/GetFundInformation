@@ -11,6 +11,7 @@ from PyQt5 import sip
 from tool.Fund import Fund
 from tool.MyselfSelectFund import MyselfSelectFund
 
+
 class MyselfSelectFundWindows(QDialog, Ui_Dialog):
     def __init__(self, parent=None):
         super(MyselfSelectFundWindows, self).__init__(parent)
@@ -18,8 +19,9 @@ class MyselfSelectFundWindows(QDialog, Ui_Dialog):
         self.timer = QTimer(self)
 
         self.btnSwitchWindow.clicked.connect(self.SwitchWindow)
+        self.btnRefresh.clicked.connect(self.refresh)
         self.timer.timeout.connect(self.refresh)
-        self.timer.start(1000 * 60 * 5) # 5分钟一刷新
+        self.timer.start(1000 * 60 * 5)  # 5分钟一刷新
 
         self.miniWindowFlag = False
 
@@ -44,10 +46,12 @@ class MyselfSelectFundWindows(QDialog, Ui_Dialog):
         myselfSelectFundDict = myselfSelectFund.GetMyselfSelectFundDict()
 
         funds = list()
-        for fundCode in myselfSelectFundDict:
-            fundCurrentInformation = fund.GetFundCurrentInformation(fundCode)
-            if not '错误' in fundCurrentInformation:
-                funds.append(fundCurrentInformation)
+
+        while (not funds) or (funds and (not funds[0])):
+            for fundCode in myselfSelectFundDict:
+                fundCurrentInformation = fund.GetFundCurrentInformation(fundCode)
+                if '错误' not in fundCurrentInformation:
+                    funds.append(fundCurrentInformation)
 
         self.tabFundDetail.setRowCount(len(funds))
         self.tabFundDetail.setColumnCount(len(funds[0]))
@@ -56,7 +60,7 @@ class MyselfSelectFundWindows(QDialog, Ui_Dialog):
         # self.tabFundDetail.resizeRowToContents(0)
 
         for row, fundInformation in enumerate(funds):
-            font = QFont()
+            # font = QFont()
             rate = float(fundInformation['涨跌幅'])
             fontColor = QColor()
             if rate > 0:

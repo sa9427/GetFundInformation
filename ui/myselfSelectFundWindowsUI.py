@@ -13,7 +13,7 @@ class Ui_Dialog(object):
         Dialog.setObjectName("Dialog")
         Dialog.resize(792, 340)
         self.btnSwitchWindow = QtWidgets.QPushButton(Dialog)
-        self.btnSwitchWindow.setGeometry(QtCore.QRect(680, 300, 75, 23))
+        self.btnSwitchWindow.setGeometry(QtCore.QRect(654, 300, 101, 23))
         self.btnSwitchWindow.setObjectName("btnSwitchWindow")
         self.gridLayoutWidget = QtWidgets.QWidget(Dialog)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 771, 281))
@@ -26,6 +26,9 @@ class Ui_Dialog(object):
         self.tabFundDetail.setColumnCount(0)
         self.tabFundDetail.setRowCount(0)
         self.gridLayout.addWidget(self.tabFundDetail, 0, 0, 1, 1)
+        self.btnRefresh = QtWidgets.QPushButton(Dialog)
+        self.btnRefresh.setGeometry(QtCore.QRect(520, 300, 101, 23))
+        self.btnRefresh.setObjectName("btnSwitchWindow_2")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -34,4 +37,5 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.btnSwitchWindow.setText(_translate("Dialog", "切换窗口"))
+        self.btnRefresh.setText(_translate("Dialog", "刷新基金信息"))
 

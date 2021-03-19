@@ -346,4 +346,5 @@ healthchecksdb
 /detail.js
 /GetFundInformation.pyproj
 /GetFundInformation.sln
+/test.py
 /env/

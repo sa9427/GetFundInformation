@@ -47,20 +47,23 @@ class FundList():
         return list(self.df.columns)
 
     def getFundListFromFind(self, type, keyword):
+        if type:
+            # 使用当前type获取新的data
+            data = self.df[self.df['type'] == type]
+        else:
+            data = self.df
+
         #如果纯数字，则进行基金代码查找
         if keyword:
-            if type:
-                # 使用当前type获取新的data
-                data = self.df[self.df['type'] == type]
-            else:
-                data = self.df
-
             keyword = keyword.upper()
 
             if len(keyword) == len(re.findall('\d', keyword)):
                 data = data[data['code'].str.contains(keyword)]
                 return data.values
             elif len(keyword) == len(re.findall('[A-Z]', keyword)):
+                # 因为要使用index取值，因此需要重置index
+                data = data.reset_index(drop=True)
+
                 phoneticIndex = data[data['phonetic'].str.contains(keyword)].index
                 abbreviationIndex = data[data['abbreviation'].str.contains(keyword)].index
                 index = list(set(phoneticIndex) | set(abbreviationIndex))
@@ -69,4 +72,4 @@ class FundList():
                 data = data[data['name'].str.contains(keyword)]
                 return data.values
         else:
-            return self.df.values
+            return data.values
