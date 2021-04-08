@@ -73,3 +73,5 @@ class FundList():
                 return data.values
         else:
             return data.values
+
+        

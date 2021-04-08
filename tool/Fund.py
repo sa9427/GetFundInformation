@@ -16,7 +16,7 @@ class Fund():
         url = 'http://fundgz.1234567.com.cn/js/%s.js?rt=1463558676006' % fundCode
 
         try:
-            content = requests.get(url).content
+             content = requests.get(url).content
         except:
             return {'基金代码': fundCode, '错误': '超时'}
 
